@@ -40,7 +40,8 @@ var ScrollingSyncerContext = React.createContext({
  * that wrappes children to be .Provided with context utils and eventsHandlers
  * @param props ScrollSyncProps
  */
-var ScrollSync = function (props) {
+var ScrollSync = function (_a) {
+    var _b = _a.disabled, disabled = _b === void 0 ? false : _b, _c = _a.proportional, proportional = _c === void 0 ? true : _c, children = _a.children;
     /**
      * a map of group: and it's nodes
      * {
@@ -119,7 +120,7 @@ var ScrollSync = function (props) {
         if (!scrolledNode || !node)
             return;
         var scrollTop = scrolledNode.scrollTop, scrollHeight = scrolledNode.scrollHeight, offsetHeight = scrolledNode.offsetHeight, scrollLeft = scrolledNode.scrollLeft, scrollWidth = scrolledNode.scrollWidth, offsetLeft = scrolledNode.offsetLeft, offsetWidth = scrolledNode.offsetWidth;
-        if (!props.proportional) {
+        if (!proportional) {
             node.scrollLeft = scrollLeft;
             node.scrollTop = scrollTop;
             return;
@@ -169,12 +170,8 @@ var ScrollSync = function (props) {
     return (React.createElement(ScrollingSyncerContext.Provider, { value: {
             registerNode: registerNode,
             unregisterNode: unregisterNode,
-            onScroll: function (e, groups) { return !props.disabled && handleNodeScroll(e.currentTarget, groups); },
-        } }, React.Children.only(props.children)));
-};
-ScrollSync.defaultProps = {
-    disabled: false,
-    proportional: true,
+            onScroll: function (e, groups) { return !disabled && handleNodeScroll(e.currentTarget, groups); },
+        } }, React.Children.only(children)));
 };
 
 var toArray = function (groups) { return [].concat(groups); };
