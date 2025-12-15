@@ -14,7 +14,7 @@ interface ScrollSyncNodeProps {
   /**
    * Children
    */
-  children: React.ReactElement;
+  children: React.ReactElement<any>;
   /**
    * Groups to make the children attached to
    */
