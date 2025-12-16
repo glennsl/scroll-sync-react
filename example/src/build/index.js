@@ -188,7 +188,7 @@ var getMovingAxis = function (e) {
 var ScrollSyncNode = forwardRef(function (props, forwardedRef) {
     var children = props.children, _a = props.group, group = _a === void 0 ? "default" : _a, _b = props.scroll, scroll = _b === void 0 ? "two-way" : _b, _c = props.selfLockAxis, selfLockAxis = _c === void 0 ? null : _c, _d = props.onScroll, onNodeScroll = _d === void 0 ? function () { return undefined; } : _d;
     var _e = useContext(ScrollingSyncerContext), registerNode = _e.registerNode, unregisterNode = _e.unregisterNode, onScroll = _e.onScroll;
-    var childRef = children.ref;
+    var childRef = children.props.ref;
     var hasDoubleRef = childRef != null && forwardedRef != null;
     if (hasDoubleRef) {
         console.warn("scroll-sync-react:\nWARNING: ref used on both ScrollSyncNode and its direct child.\nUsing the ref from the ScrollSyncNode component.");
