@@ -46,7 +46,7 @@ const ScrollSyncNode: React.ForwardRefExoticComponent<ScrollSyncNodeProps &
 
     const { registerNode, unregisterNode, onScroll } = useContext(ScrollingSyncerContext);
 
-    const childRef = (children as any).ref;
+    const childRef = (children as any).props.ref;
     const hasDoubleRef = childRef != null && forwardedRef != null;
 
     if (hasDoubleRef) {
